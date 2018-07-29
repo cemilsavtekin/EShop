@@ -49,11 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Manage\DBManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EShop.DataAcces\EShop.DataAcces.csproj">
+      <Project>{E4466151-CE86-4A3F-AE9E-AD2FB68A8B66}</Project>
+      <Name>EShop.DataAcces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EShop.Entities\EShop.Entities.csproj">
+      <Project>{326C379B-9160-429B-9E51-580D5F2CA035}</Project>
+      <Name>EShop.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

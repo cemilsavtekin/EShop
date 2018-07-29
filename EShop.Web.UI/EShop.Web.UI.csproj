@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -84,6 +89,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -93,6 +102,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -100,6 +113,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -125,14 +142,186 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\prettyPhoto.css" />
+    <Content Include="Content\css\price-range.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\404\404.png" />
+    <Content Include="Images\blog\blog-one.jpg" />
+    <Content Include="Images\blog\blog-three.jpg" />
+    <Content Include="Images\blog\blog-two.jpg" />
+    <Content Include="Images\blog\man-four.jpg" />
+    <Content Include="Images\blog\man-one.jpg" />
+    <Content Include="Images\blog\man-three.jpg" />
+    <Content Include="Images\blog\man-two.jpg" />
+    <Content Include="Images\blog\socials.png" />
+    <Content Include="Images\cart\one.png" />
+    <Content Include="Images\cart\three.png" />
+    <Content Include="Images\cart\two.png" />
+    <Content Include="Images\home\bg_border.png" />
+    <Content Include="Images\home\gallery1.jpg" />
+    <Content Include="Images\home\gallery2.jpg" />
+    <Content Include="Images\home\gallery3.jpg" />
+    <Content Include="Images\home\gallery4.jpg" />
+    <Content Include="Images\home\girl1.jpg" />
+    <Content Include="Images\home\girl2.jpg" />
+    <Content Include="Images\home\girl3.jpg" />
+    <Content Include="Images\home\iframe1.png" />
+    <Content Include="Images\home\iframe2.png" />
+    <Content Include="Images\home\iframe3.png" />
+    <Content Include="Images\home\iframe4.png" />
+    <Content Include="Images\home\logo.png" />
+    <Content Include="Images\home\map.png" />
+    <Content Include="Images\home\new.png" />
+    <Content Include="Images\home\partner1.png" />
+    <Content Include="Images\home\partner2.png" />
+    <Content Include="Images\home\partner3.png" />
+    <Content Include="Images\home\partner4.png" />
+    <Content Include="Images\home\pricing.png" />
+    <Content Include="Images\home\product1.jpg" />
+    <Content Include="Images\home\product2.jpg" />
+    <Content Include="Images\home\product3.jpg" />
+    <Content Include="Images\home\product4.jpg" />
+    <Content Include="Images\home\product5.jpg" />
+    <Content Include="Images\home\product6.jpg" />
+    <Content Include="Images\home\recommend1.jpg" />
+    <Content Include="Images\home\recommend2.jpg" />
+    <Content Include="Images\home\recommend3.jpg" />
+    <Content Include="Images\home\sale.png" />
+    <Content Include="Images\home\searchicon.png" />
+    <Content Include="Images\home\shipping.jpg" />
+    <Content Include="Images\product-details\1.jpg" />
+    <Content Include="Images\product-details\new.jpg" />
+    <Content Include="Images\product-details\rating.png" />
+    <Content Include="Images\product-details\share.png" />
+    <Content Include="Images\product-details\similar1.jpg" />
+    <Content Include="Images\product-details\similar2.jpg" />
+    <Content Include="Images\product-details\similar3.jpg" />
+    <Content Include="Images\shop\advertisement.jpg" />
+    <Content Include="Images\shop\product10.jpg" />
+    <Content Include="Images\shop\product11.jpg" />
+    <Content Include="Images\shop\product12.jpg" />
+    <Content Include="Images\shop\product7.jpg" />
+    <Content Include="Images\shop\product8.jpg" />
+    <Content Include="Images\shop\product9.jpg" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\contact.js" />
+    <Content Include="Scripts\js\gmaps.js" />
+    <Content Include="Scripts\js\html5shiv.js" />
+    <Content Include="Scripts\js\jquery.js" />
+    <Content Include="Scripts\js\jquery.prettyPhoto.js" />
+    <Content Include="Scripts\js\jquery.scrollUp.min.js" />
+    <Content Include="Scripts\js\main.js" />
+    <Content Include="Scripts\js\price-range.js" />
+    <Content Include="Template\404.html" />
+    <Content Include="Template\blog-single.html" />
+    <Content Include="Template\blog.html" />
+    <Content Include="Template\cart.html" />
+    <Content Include="Template\checkout.html" />
+    <Content Include="Template\contact-us.html" />
+    <Content Include="Template\css\animate.css" />
+    <Content Include="Template\css\bootstrap.min.css" />
+    <Content Include="Template\css\font-awesome.min.css" />
+    <Content Include="Template\css\main.css" />
+    <Content Include="Template\css\prettyPhoto.css" />
+    <Content Include="Template\css\price-range.css" />
+    <Content Include="Template\css\responsive.css" />
+    <Content Include="Template\fonts\fontawesome-webfont.svg" />
+    <Content Include="Template\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Template\images\404\404.png" />
+    <Content Include="Template\images\blog\blog-one.jpg" />
+    <Content Include="Template\images\blog\blog-three.jpg" />
+    <Content Include="Template\images\blog\blog-two.jpg" />
+    <Content Include="Template\images\blog\man-four.jpg" />
+    <Content Include="Template\images\blog\man-one.jpg" />
+    <Content Include="Template\images\blog\man-three.jpg" />
+    <Content Include="Template\images\blog\man-two.jpg" />
+    <Content Include="Template\images\blog\socials.png" />
+    <Content Include="Template\images\cart\one.png" />
+    <Content Include="Template\images\cart\three.png" />
+    <Content Include="Template\images\cart\two.png" />
+    <Content Include="Template\images\home\bg_border.png" />
+    <Content Include="Template\images\home\gallery1.jpg" />
+    <Content Include="Template\images\home\gallery2.jpg" />
+    <Content Include="Template\images\home\gallery3.jpg" />
+    <Content Include="Template\images\home\gallery4.jpg" />
+    <Content Include="Template\images\home\girl1.jpg" />
+    <Content Include="Template\images\home\girl2.jpg" />
+    <Content Include="Template\images\home\girl3.jpg" />
+    <Content Include="Template\images\home\iframe1.png" />
+    <Content Include="Template\images\home\iframe2.png" />
+    <Content Include="Template\images\home\iframe3.png" />
+    <Content Include="Template\images\home\iframe4.png" />
+    <Content Include="Template\images\home\logo.png" />
+    <Content Include="Template\images\home\map.png" />
+    <Content Include="Template\images\home\new.png" />
+    <Content Include="Template\images\home\partner1.png" />
+    <Content Include="Template\images\home\partner2.png" />
+    <Content Include="Template\images\home\partner3.png" />
+    <Content Include="Template\images\home\partner4.png" />
+    <Content Include="Template\images\home\pricing.png" />
+    <Content Include="Template\images\home\product1.jpg" />
+    <Content Include="Template\images\home\product2.jpg" />
+    <Content Include="Template\images\home\product3.jpg" />
+    <Content Include="Template\images\home\product4.jpg" />
+    <Content Include="Template\images\home\product5.jpg" />
+    <Content Include="Template\images\home\product6.jpg" />
+    <Content Include="Template\images\home\recommend1.jpg" />
+    <Content Include="Template\images\home\recommend2.jpg" />
+    <Content Include="Template\images\home\recommend3.jpg" />
+    <Content Include="Template\images\home\sale.png" />
+    <Content Include="Template\images\home\searchicon.png" />
+    <Content Include="Template\images\home\shipping.jpg" />
+    <Content Include="Template\images\product-details\1.jpg" />
+    <Content Include="Template\images\product-details\new.jpg" />
+    <Content Include="Template\images\product-details\rating.png" />
+    <Content Include="Template\images\product-details\share.png" />
+    <Content Include="Template\images\product-details\similar1.jpg" />
+    <Content Include="Template\images\product-details\similar2.jpg" />
+    <Content Include="Template\images\product-details\similar3.jpg" />
+    <Content Include="Template\images\shop\advertisement.jpg" />
+    <Content Include="Template\images\shop\product10.jpg" />
+    <Content Include="Template\images\shop\product11.jpg" />
+    <Content Include="Template\images\shop\product12.jpg" />
+    <Content Include="Template\images\shop\product7.jpg" />
+    <Content Include="Template\images\shop\product8.jpg" />
+    <Content Include="Template\images\shop\product9.jpg" />
+    <Content Include="Template\index.html" />
+    <Content Include="Template\js\bootstrap.min.js" />
+    <Content Include="Template\js\contact.js" />
+    <Content Include="Template\js\gmaps.js" />
+    <Content Include="Template\js\html5shiv.js" />
+    <Content Include="Template\js\jquery.js" />
+    <Content Include="Template\js\jquery.prettyPhoto.js" />
+    <Content Include="Template\js\jquery.scrollUp.min.js" />
+    <Content Include="Template\js\main.js" />
+    <Content Include="Template\js\price-range.js" />
+    <Content Include="Template\login.html" />
+    <Content Include="Template\product-details.html" />
+    <Content Include="Template\sendemail.php" />
+    <Content Include="Template\shop.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +330,27 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Template\fonts\fontawesome-webfont.woff" />
+    <Content Include="Template\fonts\FontAwesome.otf" />
+    <Content Include="Template\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Home\ProductDetails.cshtml" />
+    <Content Include="Views\Home\SiparisTamamla.cshtml" />
+    <Content Include="Views\Home\Sepet.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\ErrorPage.cshtml" />
+    <Content Include="Views\Shared\_Adminlayout.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -150,8 +360,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EShop.Entities\EShop.Entities.csproj">
+      <Project>{326c379b-9160-429b-9e51-580d5f2ca035}</Project>
+      <Name>EShop.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
