@@ -18,12 +18,8 @@ namespace EShop.Entities.Concrete
         public string Email { get; set; }
 
         public User User { get; set; }
-        [ForeignKey("ID")]
-        public int UserID { get; set; }
 
         public AddressDetail AddressDetail { get; set; }
-        [ForeignKey("ID")]
-        public int AddressID { get; set; }
 
     }
 }

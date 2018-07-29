@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Context\EShopContext.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository.cs" />
+    <Compile Include="Migrations\201807291151359_firstMigration.cs" />
+    <Compile Include="Migrations\201807291151359_firstMigration.Designer.cs">
+      <DependentUpon>201807291151359_firstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +68,11 @@
       <Project>{326C379B-9160-429B-9E51-580D5F2CA035}</Project>
       <Name>EShop.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807291151359_firstMigration.resx">
+      <DependentUpon>201807291151359_firstMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,15 +19,9 @@ namespace EShop.Entities.Concrete
 
 
         public AddressDetail AddressDetail { get; set; }
-        [ForeignKey("ID")]
-        public int AddressID { get; set; }
 
         public Customer Customer { get; set; }
-        [ForeignKey("ID")]
-        public int CustomerID { get; set; }
 
         public Cart Cart { get; set; }
-        [ForeignKey("ID")]
-        public int CartID { get; set; }
     }
 }

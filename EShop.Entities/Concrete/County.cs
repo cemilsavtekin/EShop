@@ -14,7 +14,5 @@ namespace EShop.Entities.Concrete
         public string CountyName { get; set; }
 
         public City City { get; set; }
-        [ForeignKey("ID")]
-        public int CityID { get; set; }
     }
 }

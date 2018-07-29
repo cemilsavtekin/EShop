@@ -14,7 +14,5 @@ namespace EShop.Entities.Concrete
         public string AdresDetay { get; set; }
 
         public County County { get; set; }
-        [ForeignKey("ID")]
-        public int CountyID { get; set; }
     }
 }

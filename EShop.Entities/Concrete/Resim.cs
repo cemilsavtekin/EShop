@@ -15,7 +15,5 @@ namespace EShop.Entities.Concrete
         public int ImageType { get; set; }
 
         public Product Product { get; set; }
-        [ForeignKey("ID")]
-        public int? ProductID { get; set; }
     }
 }

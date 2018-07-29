@@ -24,8 +24,6 @@ namespace EShop.Entities.Concrete.Account
 
 
         public Role Role { get; set; }
-
-        [ForeignKey("ID")]
-        public int RoleID { get; set; }
+        
     }
 }
