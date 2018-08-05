@@ -12,7 +12,7 @@ namespace EShop.Entities.Concrete.Account
   
     public class User:IEntity
     {
-        public int ID { get; set; }
+        public int UserID { get; set; }
 
         public string UserName { get; set; }
 
@@ -22,7 +22,8 @@ namespace EShop.Entities.Concrete.Account
 
         public string PhoneNumber { get; set; }
 
-
+        public int? RoleID { get; set; }
+        [ForeignKey("RoleID")]
         public Role Role { get; set; }
         
     }

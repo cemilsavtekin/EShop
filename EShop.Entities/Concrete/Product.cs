@@ -10,7 +10,7 @@ namespace EShop.Entities.Concrete
 {
     public class Product:BaseEntity
     {
-        public int ID { get; set; }
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
@@ -18,11 +18,16 @@ namespace EShop.Entities.Concrete
         public DateTime ReleaseDate { get; set; }
         public bool IsActive { get; set; }
 
+
+        public int? CategoryID { get; set; }
+        [ForeignKey("CategoryID")]
         public Category Category { get; set; }
 
+        public int? BrandID { get; set; }
+        [ForeignKey("BrandID")]
         public Brand Brand { get; set; }
 
-        public IEnumerable<Resim> Images { get; set; }
+        public ICollection<Resim> Images { get; set; }
 
 
     }

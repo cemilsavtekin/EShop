@@ -9,9 +9,9 @@ namespace EShop.Entities.Concrete.Account
 {
     public class Role:IEntity
     {
-        public int ID { get; set; }
+        public int RoleID { get; set; }
         public string RoleName { get; set; }
 
-        public IEnumerable<User> Users { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }

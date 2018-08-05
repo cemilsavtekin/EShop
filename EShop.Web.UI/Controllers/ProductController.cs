@@ -1,4 +1,7 @@
-﻿using System;
+﻿using EShop.Business.Manage;
+using EShop.Entities.Concrete;
+using EShop.Web.UI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +20,14 @@ namespace EShop.Web.UI.Controllers
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
+            //SiparisVİewModel model = (from pr in DBManager<Product>.GetAll()
+            //                          join sip in DBManager<Order>.GetAll() on pr.ProductID equals sip.OrderID
+            //                          select new SiparisVİewModel
+            //                          {
+            //                              MyProperty = pr.ProductID
+            //                          }).FirstOrDefault();
+
+
             return View();
         }
 

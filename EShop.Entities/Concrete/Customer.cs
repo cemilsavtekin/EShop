@@ -11,14 +11,19 @@ namespace EShop.Entities.Concrete
 {
     public class Customer:BaseEntity
     {
-        public int ID { get; set; }
+        public int CustomerID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
 
+        public int? UserID { get; set; }
+        [ForeignKey("UserID")]
         public User User { get; set; }
 
+
+        public int? AddressDetailID { get; set; }
+        [ForeignKey("AddressDetailID")]
         public AddressDetail AddressDetail { get; set; }
 
     }

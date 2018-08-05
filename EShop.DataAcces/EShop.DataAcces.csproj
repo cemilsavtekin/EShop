@@ -52,9 +52,9 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Context\EShopContext.cs" />
     <Compile Include="Concrete\EntityFramework\Repository.cs" />
-    <Compile Include="Migrations\201807291151359_firstMigration.cs" />
-    <Compile Include="Migrations\201807291151359_firstMigration.Designer.cs">
-      <DependentUpon>201807291151359_firstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201808050714447_firstMigration.cs" />
+    <Compile Include="Migrations\201808050714447_firstMigration.Designer.cs">
+      <DependentUpon>201808050714447_firstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807291151359_firstMigration.resx">
-      <DependentUpon>201807291151359_firstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808050714447_firstMigration.resx">
+      <DependentUpon>201808050714447_firstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

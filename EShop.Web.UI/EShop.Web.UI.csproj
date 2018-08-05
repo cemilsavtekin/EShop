@@ -322,6 +322,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\MailModel.cs" />
+    <Compile Include="Models\SiparisVİewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -363,6 +364,10 @@
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EShop.Business\EShop.Business.csproj">
+      <Project>{95D73114-9BCF-4672-8A4E-BFD0E74F1A67}</Project>
+      <Name>EShop.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EShop.Entities\EShop.Entities.csproj">
       <Project>{326c379b-9160-429b-9e51-580d5f2ca035}</Project>
       <Name>EShop.Entities</Name>

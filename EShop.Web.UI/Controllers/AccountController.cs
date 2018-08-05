@@ -9,6 +9,7 @@ namespace EShop.Web.UI.Controllers
     public class AccountController : Controller
     {
         // GET: Account
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();

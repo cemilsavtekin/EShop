@@ -12,6 +12,8 @@ namespace EShop.Entities.Concrete
     {
         public int CartID { get; set; }
 
+        public int? CustomerID { get; set; }
+        [ForeignKey("CustomerID")]
         public Customer Customer { get; set; }
     }
 }

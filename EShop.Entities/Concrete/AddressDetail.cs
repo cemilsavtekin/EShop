@@ -10,9 +10,11 @@ namespace EShop.Entities.Concrete
 {
     public class AddressDetail:IEntity
     {
-        public int ID { get; set; }
+        public int AddressDetailID { get; set; }
         public string AdresDetay { get; set; }
 
+        public int? CountyID { get; set; }
+        [ForeignKey("CountyID")]
         public County County { get; set; }
     }
 }

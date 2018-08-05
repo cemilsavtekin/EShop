@@ -10,9 +10,12 @@ namespace EShop.Entities.Concrete
 {
     public class County: IEntity
     {
-        public int ID { get; set; }
+        public int CountyID { get; set; }
         public string CountyName { get; set; }
 
+
+        public int? CityID { get; set; }
+        [ForeignKey("CityID")]
         public City City { get; set; }
     }
 }

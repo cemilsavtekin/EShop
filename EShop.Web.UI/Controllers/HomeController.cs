@@ -9,9 +9,11 @@ using System.Web.Mvc;
 
 namespace EShop.Web.UI.Controllers
 {
+    //[Authorize]
     public class HomeController : Controller
     {
         // GET: Home
+        
         public ActionResult Index()
         {
             return View();
@@ -36,6 +38,7 @@ namespace EShop.Web.UI.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult Contact()
         {
             return View();

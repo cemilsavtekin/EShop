@@ -13,6 +13,8 @@ namespace EShop.Web.UI
     {
         protected void Application_Start()
         {
+            GlobalFilters.Filters.Add(new AuthorizeAttribute());//burada bütün uygulamaya giriş yetkisi istedik
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 

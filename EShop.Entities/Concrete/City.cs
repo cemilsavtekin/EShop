@@ -9,7 +9,7 @@ namespace EShop.Entities.Concrete
 {
     public class City:IEntity
     {
-        public int ID { get; set; }
+        public int CityID { get; set; }
         public string CityName { get; set; }
     }
 }
