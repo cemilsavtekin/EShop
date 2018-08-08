@@ -82,11 +82,19 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                                {
+                                    <li><a href="Account/LogOut"><i class="fa fa-user"></i> @HttpContext.Current.User.Identity.Name</a></li>
+                                }
+
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                 <li><a href="/Home/SiparisTamamla"><i class="fa fa-crosshairs"></i> Sipariş tamamla</a></li>
                                 <li><a href="/Home/Sepet"><i class="fa fa-shopping-cart"></i> Sepet</a></li>
-                                <li><a href="/Account/Login"><i class="fa fa-lock"></i> Giris Yap</a></li>
+                                @if (HttpContext.Current.User.Identity.IsAuthenticated == false)
+                                {
+                                    <li><a href="/Account/Login"><i class="fa fa-lock"></i> Giris Yap</a></li>
+                                }
+                                
                             </ul>
                         </div>
                     </div>
@@ -119,6 +127,10 @@
                                     </ul>
                                 </li>
                                 <li><a href="/Home/Contact">Contact</a></li>
+                                @if (HttpContext.Current.User.IsInRole("Admin"))
+                                {
+                                    <li><a href="/Product/Create">Yeni Ürün</a></li>
+                                }
                             </ul>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-﻿
+﻿@model EShop.Entities.Concrete.Account.User
 @{
     ViewBag.Title = "Login";
 }
@@ -11,15 +11,23 @@
                 <div class="login-form">
                     <!--login form-->
                     <h2>Login to your account</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email Address" />
-                        <span>
-                            <input type="checkbox" class="checkbox">
-                            Keep me signed in
-                        </span>
+                   
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "SignInForm" }))
+                    {
+                       <p class="text-danger">@ViewData["ValidationMessage"]</p> 
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+                            @*@Html.ValidationMessageFor(m=>m.UserName) burası spesific hata mesajı için  *@
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre", @type = "password" })
+                        </div>
+
                         <button type="submit" class="btn btn-default">Login</button>
-                    </form>
+                    }
+
+
                 </div><!--/login form-->
             </div>
             <div class="col-sm-1">
@@ -29,15 +37,34 @@
                 <div class="signup-form">
                     <!--sign up form-->
                     <h2>New User Signup!</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email Address" />
-                        <input type="password" placeholder="Password" />
-                        <button type="submit" class="btn btn-default">Signup</button>
-                    </form>
+
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "SignInForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+                            @*@Html.ValidationMessageFor(m=>m.UserName) burası spesific hata mesajı için  *@
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Telefon Numarası" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre", @type = "password" })
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Signup</button>
+                    }
+
+
+
                 </div><!--/sign up form-->
             </div>
         </div>
     </div>
 </section><!--/form-->
-

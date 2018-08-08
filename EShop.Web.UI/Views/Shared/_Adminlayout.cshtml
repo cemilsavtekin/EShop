@@ -67,6 +67,9 @@
             </div>
         </nav>
         @RenderBody()
+
+        @Scripts.Render("~/bundles/script")
+        @RenderSection("scripts",false)
     </div>
 </body>
 </html>

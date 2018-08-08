@@ -3,18 +3,51 @@ using EShop.Entities.Concrete;
 using EShop.Web.UI.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace EShop.Web.UI.Controllers
 {
+    
+    //[Authorize(Roles ="Admin,User")]
+    [AllowAnonymous]
     public class ProductController : Controller
     {
+       static List<Resim> UploadedImages = new List<Resim>();
+
+        public JsonResult ImageLoad(FileImageModel model)
+        {
+            var file = model.ImageFile;
+
+            if (file != null)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var extension = Path.GetExtension(file.FileName);
+                var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.FileName);
+                file.SaveAs(Server.MapPath("/Images/Uploaded/" + file.FileName));
+
+                UploadedImages.Add(new Resim
+                {
+                    ImagePath = file.FileName,
+                    ImageType=1/*Ürün resmi*/
+                });
+
+            }
+            return Json(file.FileName,JsonRequestBehavior.AllowGet);
+        }
+
+
         // GET: Product
         public ActionResult Index()
         {
-            return View();
+
+            var products = DBManager<Product>.GetAll();
+            ViewBag.Images = DBManager<Resim>.GetAll();
+
+
+            return View(products);
         }
 
         // GET: Product/Details/5
@@ -34,16 +67,26 @@ namespace EShop.Web.UI.Controllers
         // GET: Product/Create
         public ActionResult Create()
         {
+            ViewBag.CategoryID = DBManager<Category>.GetAll(x => x.UstKategoriID == null);
+
             return View();
         }
 
+
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Product product)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    if (UploadedImages.Count > 0 || UploadedImages != null)
+                    {
+                        product.Images = UploadedImages;
+                    }
+                    DBManager<Product>.Add(product);
+                }
 
                 return RedirectToAction("Index");
             }
@@ -80,6 +123,9 @@ namespace EShop.Web.UI.Controllers
         {
             return View();
         }
+
+
+
 
         // POST: Product/Delete/5
         [HttpPost]

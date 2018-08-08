@@ -1,4 +1,5 @@
-﻿@model IEnumerable<EShop.Entities.Concrete.Product>
+﻿@using EShop.Entities.Concrete
+@model IEnumerable<EShop.Entities.Concrete.Product>
 
 @{
     ViewBag.Title = "Index";
@@ -13,17 +14,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeletedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
+
+        <th>
+            @Html.DisplayNameFor(model=>model.Images)
+        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
@@ -42,17 +39,21 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeletedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
+
+        <td>
+                @foreach (var img in (List<Resim>)ViewBag.Images)
+                {
+                    if (img.ProductID==item.ProductID)
+                    {
+            <img src="~/Images/Uploaded/@img.ImagePath" style="max-width:50px; max-height:30px;" />
+                    }
+                    
+                }
+            
+        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>

@@ -1,4 +1,6 @@
-﻿@model EShop.Entities.Concrete.Product
+﻿@using EShop.Entities.Concrete
+@model EShop.Entities.Concrete.Product
+
 
 @{
     ViewBag.Title = "Create";
@@ -8,21 +10,29 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Product</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-       
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CategoryID",new SelectList((IEnumerable<Category>)ViewBag.CategoryID,"CategoryID","CategoryName"),"Kategori Seçin", new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -43,15 +53,15 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReleaseDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.ReleaseDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
                 @Html.ValidationMessageFor(model => model.ReleaseDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IsActive, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.IsActive)
@@ -59,6 +69,27 @@
                 </div>
             </div>
         </div>
+
+
+        <!--File Upload start-->
+        <div class="form-group">
+            <div class="btn btn-primary">
+                <input type="file" multiple id="imageBrowse" />
+            </div>
+
+            <hr />
+
+            <div id="imagePreview" class="thumbnail" style="display:none; max-width:150px;">
+
+            </div>
+        </div>
+
+        <div class="thumbnail" id="uploadedImage">
+
+        </div>
+
+        <!--File Upload End-->
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -72,6 +103,68 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@*@section Scripts {
-    
-}*@
+@section Scripts {
+    <script>
+        $(function () {
+            $("#imageBrowse").change(function () {
+                var File = this.files;
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+            })
+        })
+
+        var ReadImage = function (file) {
+            var reader = new FileReader;
+            var image = new Image;
+
+            reader.readAsDataURL(file);
+            reader.onload = function (_file) {
+                image.src = _file.target.result;
+                image.onload = function () {
+                    var width = this.width;
+                    var height = this.height;
+                    var type = file.type;
+                    var size = ~~(file.size / 1024) + "KB";
+
+                    $("#imagePreview").append("<img class='img-responsive' src='" + _file.target.result + "' /><div class='caption'><a href='#' onclick='ClearPreview();'><i class='glyphicon glyphicon-trash'></i></a><span>Size: " + size + ", " + height + ", " + width + ", " + type + "</span></div><a href='#' class='btn btn-default' onclick='UploadImage()'>Upload</a>");
+                    $("#imagePreview").show();
+                }
+            }
+        }
+
+        var ClearPreview = function () {
+            $("#ImagePreview").hide();
+        }
+
+        var UploadImage = function () {
+            var file = $("#imageBrowse").get(0).files;
+
+            var data = new FormData;
+
+            data.append("ImageFile", file[0]);
+
+            AjaxPostFile("/Product/ImageLoad", data, function (response) {
+                $("#uploadedImage").append("<img src='/Images/Uploaded/" + response + "' class='img-responsive thumbnail'/>");
+            }, function () { alert("Resim Yüklenirken hata oluştu"); })
+
+
+            //$.ajax({
+            //    url: "/Product/ImageLoad",
+            //    data: data,
+            //    contentType: false,
+            //    processData: false,
+            //    type: "Post",
+            //    success: function (response) {
+            //        $("#uploadedImage").append("<img src='Images/Uploaded/'" + response + " class='img-responsive thumbnail'/>");
+            //    },
+            //    error: function () {
+            //        alert("Resim Yüklenirken hata oluştu");
+            //    }
+
+            //});
+
+        }
+
+    </script>
+}

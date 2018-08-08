@@ -13,7 +13,7 @@ namespace EShop.DataAcces.Concrete.EntityFramework.Context
     {
         public EShopContext():base("EShop")
         {
-
+            this.Configuration.LazyLoadingEnabled = true;
         }
 
         public DbSet<Role> Roles { get; set; }

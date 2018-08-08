@@ -25,7 +25,8 @@ namespace EShop.Web.UI.App_Start
                 "~/Scripts/js/jquery.scrollUp.min.js",
                 "~/Scripts/js/price-range.js",
                 "~/Scripts/js/jquery.prettyPhoto.js",
-                "~/Scripts/js/main.js"
+                "~/Scripts/js/main.js",
+                "~/Scripts/Utils.js"
                 ));
         }
 
